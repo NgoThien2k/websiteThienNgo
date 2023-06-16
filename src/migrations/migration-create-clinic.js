@@ -1,30 +1,33 @@
 'use strict';
+
+const { name } = require("ejs");
+
 module.exports = {
   //addColumn
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('allcodes', {
-        // key: DataTypes.STRING,
-        // type: DataTypes.STRING,
-        // value_en: DataTypes.STRING,
-        // value_vi: DataTypes.STRING,
+    await queryInterface.createTable('clinics', {
+        // address: DataTypes.STRING,
+        // description: DataTypes.TEXT,
+        // image:DataTypes.STRING,
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      key: {
+      address: {
         type: Sequelize.STRING
       },
-      type: {
-        type: Sequelize.STRING
+      description: {
+        type: Sequelize.TEXT
       },
-      valueEn: {
+      image: {
         type: Sequelize.STRING
       }, 
-      valueVi: {
+      name: {
         type: Sequelize.STRING
-      },
+      }, 
+      
       
       createdAt: {
         allowNull: false,
@@ -37,6 +40,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('allcodes');
+    await queryInterface.dropTable('clinics');
   }
 };

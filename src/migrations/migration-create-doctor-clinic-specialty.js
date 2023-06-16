@@ -2,29 +2,27 @@
 module.exports = {
   //addColumn
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('allcodes', {
-        // key: DataTypes.STRING,
-        // type: DataTypes.STRING,
-        // value_en: DataTypes.STRING,
-        // value_vi: DataTypes.STRING,
+    await queryInterface.createTable('doctor_clinic_specialty', {
+      // doctorId: DataTypes.INTEGER,
+      // clinicId: DataTypes.INTEGER,
+      // specialtyId:DataTypes.INTEGER,
+        
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      key: {
-        type: Sequelize.STRING
+      doctorId: {
+        type: Sequelize.INTEGER
       },
-      type: {
-        type: Sequelize.STRING
+      clinicId: {
+        type: Sequelize.INTEGER
       },
-      valueEn: {
-        type: Sequelize.STRING
-      }, 
-      valueVi: {
-        type: Sequelize.STRING
+      specialtyId: {
+        type: Sequelize.INTEGER
       },
+      
       
       createdAt: {
         allowNull: false,
@@ -37,6 +35,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('allcodes');
+    await queryInterface.dropTable('doctor_clinic_specialty');
   }
 };

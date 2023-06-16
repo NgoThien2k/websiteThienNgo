@@ -10,6 +10,7 @@ let initWebRoutes = (app) =>{
         return res.send("Hello World Bé Dâu");
     });
     router.get('/AboutPage', homecontroller.getAboutMe);
+    router.get('/CRUD',homecontroller.getCRUD);
     
     return app.use("/", router);
 }
