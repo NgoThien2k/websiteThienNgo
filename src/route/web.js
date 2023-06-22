@@ -1,5 +1,5 @@
 import express from "express";
-import homecontroller from "../controllers/homecontroller";
+import homecontroller from "../controllers/homeController";
 
 let router = express.Router();
 
@@ -11,6 +11,15 @@ let initWebRoutes = (app) =>{
     });
     router.get('/AboutPage', homecontroller.getAboutMe);
     router.get('/CRUD',homecontroller.getCRUD);
+
+    router.post('/post-crud',homecontroller.postCRUD);
+
+    router.get('/get-crud',homecontroller.displayGetCRUD);
+    router.get('/edit-crud',homecontroller.getEditCRUD);
+    
+    router.post('/put-crud',homecontroller.putCRUD);
+    router.get('/delete-crud',homecontroller.deleteCRUD);
+
     
     return app.use("/", router);
 }
