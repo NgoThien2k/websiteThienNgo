@@ -15,13 +15,13 @@ let initWebRoutes = (app) =>{
 
     router.post('/post-crud',homecontroller.postCRUD);
 
-    router.get('/get-crud',homecontroller.displayGetCRUD);
+    router.get('/get-crud',homecontroller.displayGetCRUD);//database manager
     router.get('/edit-crud',homecontroller.getEditCRUD);
     
     router.post('/put-crud',homecontroller.putCRUD);
     router.get('/delete-crud',homecontroller.deleteCRUD);
 
-    router.post('/api/login',userController.handleLogin);
+    router.post('/api/login',userController.handleLogin);//login
 
     router.post('/api/create-new-user',userController.handleCreateNewUser);
     router.put('/api/edit-user',userController.handleEditUser);
@@ -29,7 +29,7 @@ let initWebRoutes = (app) =>{
 
 
     router.get('/api/get-all-users',userController.handleGetAllUsers);
-
+    router.get('/allcode',userController.getAllCode);
     
     return app.use("/", router);
 
